@@ -1,6 +1,16 @@
 def cevap_uret(mesaj):
-    return f"Mesajını aldım: {mesaj}"
 
+    cevaplar = {
+        "merhaba": "Merhaba, nasılsın?",
+        "nasılsın": "İyiyim, teşekkür ederim!",
+        "adın ne": "Ben Python ile yapılmış bir botum.",
+        "ne yapıyorsun": "Seninle sohbet ediyorum.",
+        "iyi geceler": "Sana da iyi geceler!"
+    }
+
+    mesaj = mesaj.lower().strip()
+
+    return cevaplar.get(mesaj, "Bunu henüz anlamıyorum.")
 
 def main():
     while True:
@@ -14,5 +24,4 @@ def main():
             cevap = cevap_uret(mesaj)
             print("Bot:", cevap)
 
-
-main()
+main()  
