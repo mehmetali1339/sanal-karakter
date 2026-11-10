@@ -8,13 +8,14 @@ def cevap_uret(mesaj):
         "iyi geceler": "Sana da iyi geceler!"
     }
 
-    mesaj = mesaj.lower().strip()
 
     return cevaplar.get(mesaj, "Bunu henüz anlamıyorum.")
 
 def main():
     while True:
         mesaj = input("Sen: ")
+
+        mesaj = temizle(mesaj)
 
         if mesaj == "/cikis":
             print("Bot: Görüşürüz!")
@@ -24,4 +25,12 @@ def main():
             cevap = cevap_uret(mesaj)
             print("Bot:", cevap)
 
-main()  
+
+def temizle(mesaj):
+    mesaj = mesaj.replace("İ", "i")
+    mesaj = mesaj.replace("I", "ı")
+    mesaj = mesaj.lower()
+    mesaj = mesaj.strip()
+    return mesaj
+
+main()
